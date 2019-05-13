@@ -125,13 +125,13 @@
                 <!--
                 ...Additional dependencies may be placed here...
                 -->
-                <!-- 添加mysql驱动 -->
+                <!-- 添加驱动mysql  -->
                 <dependency>
                 	<groupId>mysql</groupId>
                 	<artifactId>mysql-connector-java</artifactId>
                 	<version>8.0.15</version>
                 </dependency>
-                <!-- 添加cas 的jdbc相关包 -->
+                <!--添加cas相关的jdbc包 -->
                 <dependency>
                 	<groupId>org.apereo.cas</groupId>
                 	<artifactId>cas-server-support-jdbc</artifactId>
@@ -143,6 +143,14 @@
                 	<artifactId>cas-server-support-audit-jdbc</artifactId>
                 	<version>${cas.version}</version>
                 </dependency>
+                
+				<!-- jpa services 配置添加依赖 -->
+				<dependency>
+				    <groupId>org.apereo.cas</groupId>
+				    <artifactId>cas-server-support-jpa-service-registry</artifactId>
+				    <version>${cas.version}</version>
+				</dependency>
+				                
             </dependencies>
         </profile>
 
