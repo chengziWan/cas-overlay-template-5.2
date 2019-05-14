@@ -145,12 +145,24 @@
                 </dependency>
                 
 				<!-- jpa services 配置添加依赖 -->
-				<dependency>
+				<!-- <dependency>
 				    <groupId>org.apereo.cas</groupId>
 				    <artifactId>cas-server-support-jpa-service-registry</artifactId>
 				    <version>${cas.version}</version>
-				</dependency>
-				                
+				</dependency> -->
+				<!-- OAuth/OpenID Authentication Begin -->
+		        <dependency>
+		          <groupId>org.apereo.cas</groupId>
+		          <artifactId>cas-server-support-oauth-webflow</artifactId>
+		          <version>${cas.version}</version>
+		        </dependency>
+		        <!-- OAuth/OpenID Authentication End -->
+                <!-- 第三方登录依赖 -->
+		       <dependency>
+				     <groupId>org.apereo.cas</groupId>
+				     <artifactId>cas-server-support-pac4j-webflow</artifactId>
+				     <version>5.2.6</version>
+			   </dependency>
             </dependencies>
         </profile>
 
