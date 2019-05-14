@@ -145,11 +145,11 @@
                 </dependency>
                 
 				<!-- jpa services 配置添加依赖 -->
-				<!-- <dependency>
+				<dependency>
 				    <groupId>org.apereo.cas</groupId>
 				    <artifactId>cas-server-support-jpa-service-registry</artifactId>
 				    <version>${cas.version}</version>
-				</dependency> -->
+				</dependency>
 				<!-- OAuth/OpenID Authentication Begin -->
 		        <dependency>
 		          <groupId>org.apereo.cas</groupId>
