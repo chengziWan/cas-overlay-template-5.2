@@ -4,7 +4,12 @@
   "name" : "wcc",
   "id" : 1,
   "description" : "Íò³Ì³ÌThis service definition authorizes all application urls that support HTTPS and IMAPS protocols.",
-  "evaluationOrder" : 10000
+  "evaluationOrder" : 8888,
+  "theme": "wcc",
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+    
+ }
  
   
 }

@@ -107,7 +107,9 @@
         <AsyncLogger name="org.apereo.inspektr.audit.support" level="info" includeLocation="true" >
             <AppenderRef ref="casAudit"/>
         </AsyncLogger>
-
+		<AsyncLogger name="com.example.cas.*" level="info" includeLocation="true">
+		    <AppenderRef ref="casConsole"/>
+		</AsyncLogger>
         <!-- All Loggers inherit appenders specified here, unless additivity="false" on the Logger -->
         <AsyncRoot level="warn">
             <AppenderRef ref="casFile"/>

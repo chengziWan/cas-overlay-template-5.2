@@ -4,5 +4,5 @@
   "name" : "HTTPS and IMAPS",
   "id" : 10000002,
   "description" : "Íò³Ì³ÌThis service definition authorizes all application urls that support HTTPS and IMAPS protocols.",
-  "evaluationOrder" : 10000
+  "evaluationOrder" : 100001
 }

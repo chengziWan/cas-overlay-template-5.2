@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apereo.cas</groupId>
     <artifactId>cas-overlay</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0</version>
 
     <build>
@@ -53,6 +53,11 @@
                         <overlay>
                             <groupId>org.apereo.cas</groupId>
                             <artifactId>cas-server-webapp${app.server}</artifactId>
+                        	<!--原有的服务不再初始化进去-->
+			                  <excludes>
+			                      <exclude>**/messages_*.properties</exclude>
+			                      <exclude>**/truststore.jks</exclude>
+			                  </excludes>
                         </overlay>
                     </overlays>
                 </configuration>
@@ -137,6 +142,32 @@
                 	<artifactId>cas-server-support-jdbc</artifactId>
                 	<version>${cas.version}</version>
                 </dependency>
+                <!-- 自定义登录验证依赖 start -->
+                <dependency>
+				    <groupId>org.apereo.cas</groupId>
+				    <artifactId>cas-server-core-authentication</artifactId>
+				    <version>${cas.version}</version>
+				</dependency>
+				<!-- <dependency>
+				    <groupId>org.apereo.cas</groupId>
+				    <artifactId>cas-server-core-authentication-api</artifactId>
+				    <version>${cas.version}</version>
+				    <type>war</type>
+				    <scope>system</scope>
+				    <optional>true</optional>
+				    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/cas-server-webapp-tomcat-5.2.1.war</systemPath>
+				</dependency> -->
+				 <dependency>
+				    <groupId>org.apereo.cas</groupId>
+				    <artifactId>cas-server-core-webflow</artifactId>
+				    <version>${cas.version}</version>
+				</dependency>
+				<dependency>
+		            <groupId>org.apereo.cas</groupId>
+				    <artifactId>cas-server-core-configuration</artifactId>
+				    <version>${cas.version}</version>
+		        </dependency>
+                <!-- 自定义登录验证依赖 end -->
                 <!-- 审计日志记录到数据库 -->
                 <dependency>
                 	<groupId>org.apereo.cas</groupId>
@@ -145,11 +176,11 @@
                 </dependency>
                 
 				<!-- jpa services 配置添加依赖 -->
-				<dependency>
+				<!-- <dependency>
 				    <groupId>org.apereo.cas</groupId>
 				    <artifactId>cas-server-support-jpa-service-registry</artifactId>
 				    <version>${cas.version}</version>
-				</dependency>
+				</dependency> -->
 				<!-- OAuth/OpenID Authentication Begin -->
 		        <dependency>
 		          <groupId>org.apereo.cas</groupId>
@@ -163,6 +194,7 @@
 				     <artifactId>cas-server-support-pac4j-webflow</artifactId>
 				     <version>5.2.6</version>
 			   </dependency>
+			   
             </dependencies>
         </profile>
 

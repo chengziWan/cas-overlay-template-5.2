@@ -7,6 +7,7 @@
   "serviceId" : "^(http|https)://.*",
   "name" : "My OAuth service",
   "id" : 100,
+  "evaluationOrder" : 9999,
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
     
