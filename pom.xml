@@ -194,7 +194,12 @@
 				     <artifactId>cas-server-support-pac4j-webflow</artifactId>
 				     <version>5.2.6</version>
 			   </dependency>
-			   
+			   <!-- 开发环境的调试,热启动 -->
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-devtools</artifactId>
+					<optional>true</optional>
+				</dependency>
             </dependencies>
         </profile>
 

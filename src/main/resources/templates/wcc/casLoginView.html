@@ -17,14 +17,29 @@
             <span th:each="err : ${#fields.errors('*')}" th:utext="${err}"/>
         </div>
         <h2 th:utext="#{screen.welcome.instructions}"></h2>
-
+		
+		<section class="row">
+            <label for="system" th:utext="#{screen.welcome.label.netid}"/>
+            <div th:unless="${openIdLocalId}">
+                <input class="required"
+                       id="system"
+                       size="25"
+                       tabindex="1"
+                       type="text"
+                       th:disabled="${guaEnabled}"
+                       th:field="*{system}"
+                       th:accesskey="#{screen.welcome.label.netid.accesskey}"
+                       autocomplete="off"/>
+            </div>
+        </section>
+        
         <section class="row">
             <label for="username" th:utext="#{screen.welcome.label.netid}"/>
             <div th:unless="${openIdLocalId}">
                 <input class="required"
                        id="username"
                        size="25"
-                       tabindex="1"
+                       tabindex="2"
                        type="text"
                        th:disabled="${guaEnabled}"
                        th:field="*{username}"
@@ -40,7 +55,7 @@
                        type="password"
                        id="password"
                        size="25"
-                       tabindex="2"
+                       tabindex="3"
                        th:accesskey="#{screen.welcome.label.password.accesskey}"
                        th:field="*{password}"
                        autocomplete="off"/>

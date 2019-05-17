@@ -23,6 +23,7 @@ import org.apereo.cas.authentication.handler.support.AbstractPreAndPostProcessin
 import org.apereo.cas.authentication.principal.PrincipalFactory;
 import org.apereo.cas.services.ServicesManager;
 
+import com.example.cas.auth.UsernamePasswordSysCredential;
 import com.example.cas.exception.CustomException;
 /**
  * @author yellowcong
@@ -43,7 +44,7 @@ public class CustomerHandler extends AbstractPreAndPostProcessingAuthenticationH
     @Override
     public boolean supports(Credential credential) {
         //判断传递过来的Credential 是否是自己能处理的类型
-        return credential instanceof UsernamePasswordCredential;
+        return credential instanceof UsernamePasswordSysCredential;
     }
 
     /**
@@ -51,12 +52,13 @@ public class CustomerHandler extends AbstractPreAndPostProcessingAuthenticationH
      */
     @Override
     protected HandlerResult doAuthentication(Credential credential) throws GeneralSecurityException, PreventedException {
-        UsernamePasswordCredential usernamePasswordCredentia = (UsernamePasswordCredential) credential;
+    	UsernamePasswordSysCredential usernamePasswordCredentia = (UsernamePasswordSysCredential) credential;
 
         //获取传递过来的用户名和密码
         String username = usernamePasswordCredentia.getUsername();
         String password = usernamePasswordCredentia.getPassword();
-
+        String system = usernamePasswordCredentia.getSystem();
+        System.out.println("system="+system+";username="+username+";password="+password);
         Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
